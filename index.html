@@ -8,7 +8,6 @@
   <title>GoYoung — Your next trip starts here</title>
 
   <style>
-
     * {
       box-sizing: border-box;
     }
@@ -24,7 +23,180 @@
       color: #151515;
     }
 
-    /* NAVIGATION */
+    button,
+    input,
+    select,
+    textarea {
+      font-family: inherit;
+    }
+
+    /* ================================
+       AUTH / SIGN IN
+    ================================= */
+
+    #authPage {
+      min-height: 100vh;
+      display: flex;
+      background: #f6f6f3;
+    }
+
+    .auth-left {
+      width: 50%;
+      min-height: 100vh;
+      background: #111;
+      color: white;
+      padding: 55px 7%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .auth-logo {
+      font-size: 27px;
+      font-weight: 900;
+      letter-spacing: -1.5px;
+    }
+
+    .auth-message {
+      max-width: 560px;
+    }
+
+    .auth-message .eyebrow {
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 25px;
+    }
+
+    .auth-message h1 {
+      font-size: 64px;
+      line-height: 0.98;
+      letter-spacing: -4px;
+      margin: 0 0 28px;
+    }
+
+    .auth-message p {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #aaa;
+      max-width: 480px;
+    }
+
+    .auth-footer {
+      color: #666;
+      font-size: 12px;
+    }
+
+    .auth-right {
+      width: 50%;
+      min-height: 100vh;
+      padding: 60px 8%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .auth-box {
+      width: 100%;
+      max-width: 440px;
+    }
+
+    .auth-box h2 {
+      font-size: 42px;
+      letter-spacing: -2px;
+      margin: 0 0 10px;
+    }
+
+    .auth-subtitle {
+      color: #777;
+      margin-bottom: 40px;
+      line-height: 1.5;
+    }
+
+    .auth-field {
+      margin-bottom: 20px;
+    }
+
+    .auth-field label {
+      display: block;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .auth-field input {
+      width: 100%;
+      border: 1px solid #ddd;
+      background: white;
+      padding: 16px;
+      border-radius: 12px;
+      font-size: 15px;
+    }
+
+    .auth-field input:focus {
+      outline: none;
+      border-color: #111;
+    }
+
+    .auth-button {
+      width: 100%;
+      margin-top: 10px;
+      border: none;
+      background: #111;
+      color: white;
+      padding: 17px 20px;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .auth-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .auth-switch {
+      text-align: center;
+      margin-top: 25px;
+      color: #777;
+      font-size: 14px;
+    }
+
+    .auth-switch button {
+      border: none;
+      background: none;
+      font-weight: bold;
+      text-decoration: underline;
+      cursor: pointer;
+      color: #111;
+      font-size: 14px;
+    }
+
+    .demo-note {
+      background: #fff8dd;
+      border: 1px solid #eee2aa;
+      padding: 13px;
+      border-radius: 10px;
+      font-size: 12px;
+      line-height: 1.5;
+      margin-top: 25px;
+      color: #665b30;
+    }
+
+    #signupBox {
+      display: none;
+    }
+
+    /* ================================
+       WEBSITE
+    ================================= */
+
+    #mainWebsite {
+      display: none;
+    }
 
     nav {
       height: 75px;
@@ -34,6 +206,9 @@
       justify-content: space-between;
       background: white;
       border-bottom: 1px solid #eeeeee;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     .logo {
@@ -43,11 +218,21 @@
     }
 
     .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
       font-size: 14px;
       color: #666;
     }
 
-    /* HERO */
+    .signout {
+      border: 1px solid #ddd;
+      background: white;
+      border-radius: 50px;
+      padding: 9px 15px;
+      cursor: pointer;
+      font-weight: bold;
+    }
 
     .hero {
       min-height: 540px;
@@ -99,8 +284,6 @@
     .hero-button:hover {
       transform: translateY(-2px);
     }
-
-    /* INTRO */
 
     .intro {
       background: #111;
@@ -176,23 +359,22 @@
       grid-column: 1 / -1;
     }
 
-    label {
+    .form-card label {
       display: block;
       font-size: 13px;
       font-weight: bold;
       margin-bottom: 8px;
     }
 
-    input,
-    select,
-    textarea {
+    .form-card input,
+    .form-card select,
+    .form-card textarea {
       width: 100%;
       border: 1px solid #ddd;
       background: #fafafa;
       padding: 14px;
       border-radius: 10px;
       font-size: 15px;
-      font-family: inherit;
     }
 
     textarea {
@@ -200,15 +382,13 @@
       min-height: 110px;
     }
 
-    input:focus,
-    select:focus,
-    textarea:focus {
+    .form-card input:focus,
+    .form-card select:focus,
+    .form-card textarea:focus {
       outline: none;
       border-color: #111;
       background: white;
     }
-
-    /* OPTION BUTTONS */
 
     .options {
       display: flex;
@@ -237,8 +417,6 @@
       border-color: #111;
     }
 
-    /* SUBMIT */
-
     .submit-area {
       text-align: center;
       margin-top: 50px;
@@ -266,8 +444,6 @@
       margin-top: 20px;
     }
 
-    /* FOOTER */
-
     footer {
       background: #111;
       color: white;
@@ -286,17 +462,38 @@
       font-size: 13px;
     }
 
-    /* MOBILE */
+    @media(max-width: 800px) {
 
-    @media(max-width: 700px) {
+      #authPage {
+        display: block;
+      }
+
+      .auth-left,
+      .auth-right {
+        width: 100%;
+        min-height: auto;
+      }
+
+      .auth-left {
+        padding: 40px 25px;
+      }
+
+      .auth-message {
+        margin: 80px 0;
+      }
+
+      .auth-message h1 {
+        font-size: 48px;
+        letter-spacing: -3px;
+      }
+
+      .auth-right {
+        padding: 60px 25px;
+      }
 
       .hero h1 {
         font-size: 48px;
         letter-spacing: -2px;
-      }
-
-      .hero {
-        min-height: 480px;
       }
 
       .grid {
@@ -315,7 +512,7 @@
         font-size: 38px;
       }
 
-      .nav-right {
+      .nav-right span {
         display: none;
       }
 
@@ -323,890 +520,1037 @@
         flex-direction: column;
         gap: 20px;
       }
-
     }
-
   </style>
-
 </head>
-
 
 <body>
 
-<!-- NAVIGATION -->
+<!-- ======================================================
+     SIGN IN / CREATE ACCOUNT
+====================================================== -->
 
-<nav>
+<section id="authPage">
 
-  <div class="logo">
-    GOYOUNG
-  </div>
+  <div class="auth-left">
 
-  <div class="nav-right">
-    Your next trip starts here.
-  </div>
+    <div class="auth-logo">GOYOUNG</div>
 
-</nav>
+    <div class="auth-message">
+      <div class="eyebrow">TRAVEL BUILT AROUND YOU</div>
 
+      <h1>
+        Your next trip<br>
+        starts here.
+      </h1>
 
-<!-- HERO -->
-
-<section class="hero">
-
-  <div class="hero-content">
-
-    <div class="small-title">
-      Personal travel planning
+      <p>
+        Tell us what you want. We'll figure out what actually works
+        and build a trip around your budget, your style and the
+        people you're travelling with.
+      </p>
     </div>
 
-    <h1>
-      Tell us your dream.<br>
-      We'll plan the trip.
-    </h1>
-
-    <p>
-      Tell us where you want to go, what you love,
-      who you're travelling with and how much you want
-      to spend. We'll build a trip around you.
-    </p>
-
-    <a href="#planner" class="hero-button">
-      Start planning →
-    </a>
-
-  </div>
-
-</section>
-
-
-<!-- INTRO -->
-
-<section class="intro">
-
-  <h2>
-    No generic itineraries.
-  </h2>
-
-  <p>
-    Every trip is different. Tell us what you're looking
-    for and we'll personally create a travel plan that
-    fits your budget, your style and the people you're
-    travelling with.
-  </p>
-
-</section>
-
-
-<!-- FORM -->
-
-<section class="form-section" id="planner">
-
-  <div class="form-header">
-
-    <div class="small-title">
-      Your trip
+    <div class="auth-footer">
+      GOYOUNG © 2026
     </div>
-
-    <h2>
-      Let's build something good.
-    </h2>
-
-    <p>
-      The more you tell us, the better we can plan your trip.
-    </p>
 
   </div>
 
 
-  <!-- FORMSPREE IS CONNECTED HERE -->
+  <div class="auth-right">
 
-  <form
-    action="https://formspree.io/f/moevydkv"
-    method="POST"
-  >
+    <!-- SIGN IN -->
 
-    <!-- FORM EMAIL SETTINGS -->
+    <div class="auth-box" id="signinBox">
 
-    <input
-      type="hidden"
-      name="_subject"
-      value="New GoYoung Trip Request"
-    >
+      <div class="small-title">WELCOME BACK</div>
 
+      <h2>Sign in.</h2>
 
-    <!-- 01 ABOUT YOU -->
+      <p class="auth-subtitle">
+        Ready for your next trip?
+      </p>
 
-    <div class="form-card">
-
-      <div class="section-number">
-        01 — ABOUT YOU
+      <div class="auth-field">
+        <label>Email</label>
+        <input
+          id="signinEmail"
+          type="email"
+          placeholder="you@email.com"
+        >
       </div>
 
-      <h3>
-        First, who are you?
-      </h3>
-
-      <div class="grid">
-
-        <div>
-
-          <label>First name *</label>
-
-          <input
-            type="text"
-            name="First name"
-            required
-            placeholder="Emma"
-          >
-
-        </div>
-
-
-        <div>
-
-          <label>Your email *</label>
-
-          <input
-            type="email"
-            name="email"
-            required
-            placeholder="you@email.com"
-          >
-
-        </div>
-
-
-        <div>
-
-          <label>Your age *</label>
-
-          <input
-            type="number"
-            name="Age"
-            required
-            min="13"
-            max="99"
-            placeholder="17"
-          >
-
-        </div>
-
-
-        <div>
-
-          <label>Where do you live?</label>
-
-          <input
-            type="text"
-            name="Country"
-            placeholder="United Kingdom"
-          >
-
-        </div>
-
+      <div class="auth-field">
+        <label>Password</label>
+        <input
+          id="signinPassword"
+          type="password"
+          placeholder="Your password"
+        >
       </div>
 
-    </div>
-
-
-    <!-- 02 GROUP -->
-
-    <div class="form-card">
-
-      <div class="section-number">
-        02 — YOUR GROUP
-      </div>
-
-      <h3>
-        Who's coming?
-      </h3>
-
-      <div class="grid">
-
-        <div>
-
-          <label>Number of travellers *</label>
-
-          <input
-            type="number"
-            name="Number of travellers"
-            min="1"
-            required
-            placeholder="4"
-          >
-
-        </div>
-
-
-        <div>
-
-          <label>Ages of the other travellers</label>
-
-          <input
-            type="text"
-            name="Traveller ages"
-            placeholder="16, 17, 17"
-          >
-
-        </div>
-
-
-        <div>
-
-          <label>Who are you travelling with?</label>
-
-          <select name="Group type">
-
-            <option>Friends</option>
-            <option>Partner</option>
-            <option>Family</option>
-            <option>Solo</option>
-            <option>Other</option>
-
-          </select>
-
-        </div>
-
-
-        <div>
-
-          <label>Anyone 18+ travelling?</label>
-
-          <select name="Someone over 18">
-
-            <option value="">Choose</option>
-            <option>Yes</option>
-            <option>No</option>
-
-          </select>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- 03 DATES -->
-
-    <div class="form-card">
-
-      <div class="section-number">
-        03 — WHEN
-      </div>
-
-      <h3>
-        When are we going?
-      </h3>
-
-      <div class="grid">
-
-        <div>
-
-          <label>Departure date</label>
-
-          <input
-            type="date"
-            name="Departure date"
-          >
-
-        </div>
-
-
-        <div>
-
-          <label>Return date</label>
-
-          <input
-            type="date"
-            name="Return date"
-          >
-
-        </div>
-
-
-        <div class="full">
-
-          <label>How flexible are your dates?</label>
-
-          <select name="Date flexibility">
-
-            <option>Exact dates</option>
-            <option>± 1 day</option>
-            <option>± 2–3 days</option>
-            <option>Very flexible</option>
-            <option>I don't know yet</option>
-
-          </select>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- 04 DESTINATION -->
-
-    <div class="form-card">
-
-      <div class="section-number">
-        04 — WHERE
-      </div>
-
-      <h3>
-        Where do you want to go?
-      </h3>
-
-      <div class="grid">
-
-        <div class="full">
-
-          <label>Leaving from *</label>
-
-          <input
-            type="text"
-            name="Leaving from"
-            required
-            placeholder="Cardiff"
-          >
-
-        </div>
-
-
-        <div class="full">
-
-          <label>Destination</label>
-
-          <input
-            type="text"
-            name="Destination"
-            placeholder="Barcelona, Paris... or write SURPRISE ME"
-          >
-
-        </div>
-
-
-        <div class="full">
-
-          <label>
-            Other destinations you're considering
-          </label>
-
-          <input
-            type="text"
-            name="Other destinations"
-            placeholder="Lisbon, Milan, Amsterdam..."
-          >
-
-        </div>
-
-
-        <div class="full">
-
-          <label>
-            How far are you willing to travel?
-          </label>
-
-          <select name="Travel distance">
-
-            <option>Anywhere</option>
-            <option>My country only</option>
-            <option>Europe</option>
-            <option>Maximum 2 hours away</option>
-            <option>Maximum 4 hours away</option>
-
-          </select>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- 05 BUDGET -->
-
-    <div class="form-card">
-
-      <div class="section-number">
-        05 — BUDGET
-      </div>
-
-      <h3>
-        What's the budget?
-      </h3>
-
-      <div class="grid">
-
-        <div>
-
-          <label>Maximum budget per person *</label>
-
-          <input
-            type="number"
-            name="Budget per person"
-            required
-            placeholder="200"
-          >
-
-        </div>
-
-
-        <div>
-
-          <label>Currency</label>
-
-          <select name="Currency">
-
-            <option>GBP £</option>
-            <option>EUR €</option>
-            <option>USD $</option>
-
-          </select>
-
-        </div>
-
-
-        <div class="full">
-
-          <label>How strict is the budget?</label>
-
-          <select name="Budget flexibility">
-
-            <option>Must stay under it</option>
-
-            <option>
-              Can go slightly above for something worth it
-            </option>
-
-            <option>
-              It's just an estimate
-            </option>
-
-          </select>
-
-        </div>
-
-
-        <div class="full">
-
-          <label>
-            What should the budget include?
-          </label>
-
-          <select name="Budget includes">
-
-            <option>
-              Everything
-            </option>
-
-            <option>
-              Transport + accommodation
-            </option>
-
-            <option>
-              Accommodation only
-            </option>
-
-            <option>
-              Transport only
-            </option>
-
-          </select>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- 06 STYLE -->
-
-    <div class="form-card">
-
-      <div class="section-number">
-        06 — YOUR STYLE
-      </div>
-
-      <h3>
-        What's your kind of trip?
-      </h3>
-
-      <div class="options">
-
-        <div class="option">
-          <input type="checkbox" id="beach" name="Trip style" value="Beach">
-          <label for="beach">🏖 Beach</label>
-        </div>
-
-        <div class="option">
-          <input type="checkbox" id="city" name="Trip style" value="Big city">
-          <label for="city">🌃 Big city</label>
-        </div>
-
-        <div class="option">
-          <input type="checkbox" id="nightlife" name="Trip style" value="Going out">
-          <label for="nightlife">🎉 Going out</label>
-        </div>
-
-        <div class="option">
-          <input type="checkbox" id="shopping" name="Trip style" value="Shopping">
-          <label for="shopping">🛍 Shopping</label>
-        </div>
-
-        <div class="option">
-          <input type="checkbox" id="food" name="Trip style" value="Food">
-          <label for="food">🍕 Food</label>
-        </div>
-
-        <div class="option">
-          <input type="checkbox" id="culture" name="Trip style" value="Culture">
-          <label for="culture">🎨 Art & culture</label>
-        </div>
-
-        <div class="option">
-          <input type="checkbox" id="adventure" name="Trip style" value="Adventure">
-          <label for="adventure">🏔 Adventure</label>
-        </div>
-
-        <div class="option">
-          <input type="checkbox" id="nature" name="Trip style" value="Nature">
-          <label for="nature">🌿 Nature</label>
-        </div>
-
-        <div class="option">
-          <input type="checkbox" id="photos" name="Trip style" value="Photo spots">
-          <label for="photos">📸 Photo spots</label>
-        </div>
-
-        <div class="option">
-          <input type="checkbox" id="sport" name="Trip style" value="Sport">
-          <label for="sport">⚽ Sport</label>
-        </div>
-
-        <div class="option">
-          <input type="checkbox" id="music" name="Trip style" value="Music">
-          <label for="music">🎵 Music</label>
-        </div>
-
-        <div class="option">
-          <input type="checkbox" id="relax" name="Trip style" value="Relax">
-          <label for="relax">😴 Relax</label>
-        </div>
-
-        <div class="option">
-          <input type="checkbox" id="cheap" name="Trip style" value="Cheap">
-          <label for="cheap">💸 Cheap & fun</label>
-        </div>
-
-        <div class="option">
-          <input type="checkbox" id="unusual" name="Trip style" value="Something unusual">
-          <label for="unusual">✨ Something unusual</label>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- 07 ACCOMMODATION -->
-
-    <div class="form-card">
-
-      <div class="section-number">
-        07 — STAY
-      </div>
-
-      <h3>
-        Where would you stay?
-      </h3>
-
-      <div class="grid">
-
-        <div>
-
-          <label>Accommodation</label>
-
-          <select name="Accommodation">
-
-            <option>Don't care</option>
-            <option>Hotel</option>
-            <option>Hostel</option>
-            <option>Apartment</option>
-            <option>B&B</option>
-
-          </select>
-
-        </div>
-
-
-        <div>
-
-          <label>What's most important?</label>
-
-          <select name="Accommodation priority">
-
-            <option>Best balance</option>
-            <option>Cheapest possible</option>
-            <option>Best location</option>
-            <option>Nice accommodation</option>
-
-          </select>
-
-        </div>
-
-
-        <div class="full">
-
-          <label>
-            Would you share a room with people you don't know?
-          </label>
-
-          <select name="Shared room">
-
-            <option>No</option>
-            <option>Yes</option>
-            <option>Maybe</option>
-
-          </select>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- 08 TRANSPORT -->
-
-    <div class="form-card">
-
-      <div class="section-number">
-        08 — GETTING THERE
-      </div>
-
-      <h3>
-        How do you want to travel?
-      </h3>
-
-      <div class="grid">
-
-        <div>
-
-          <label>Preferred transport</label>
-
-          <select name="Preferred transport">
-
-            <option>Find me the best option</option>
-            <option>Plane</option>
-            <option>Train</option>
-            <option>Coach</option>
-            <option>Car</option>
-            <option>Ferry</option>
-
-          </select>
-
-        </div>
-
-
-        <div>
-
-          <label>Maximum travel time</label>
-
-          <select name="Maximum travel time">
-
-            <option>Don't care</option>
-            <option>2 hours</option>
-            <option>4 hours</option>
-            <option>6 hours</option>
-            <option>8 hours</option>
-            <option>More than 8 hours is fine</option>
-
-          </select>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- 09 PERSONALISE -->
-
-    <div class="form-card">
-
-      <div class="section-number">
-        09 — MAKE IT YOURS
-      </div>
-
-      <h3>
-        Now tell us what you actually want.
-      </h3>
-
-      <div class="grid">
-
-        <div class="full">
-
-          <label>
-            What would make you come home and say
-            "that was an amazing trip"?
-          </label>
-
-          <textarea
-            name="Dream trip"
-            placeholder="Tell us what your ideal trip feels like..."
-          ></textarea>
-
-        </div>
-
-
-        <div class="full">
-
-          <label>
-            What are 3 things you definitely want?
-          </label>
-
-          <textarea
-            name="Must haves"
-            placeholder="Great food, beach, somewhere lively..."
-          ></textarea>
-
-        </div>
-
-
-        <div class="full">
-
-          <label>
-            Anything you definitely DON'T want?
-          </label>
-
-          <textarea
-            name="Things to avoid"
-            placeholder="Long journeys, museums, very touristy places..."
-          ></textarea>
-
-        </div>
-
-
-        <div class="full">
-
-          <label>
-            Have you been on a trip you loved before?
-            What did you like about it?
-          </label>
-
-          <textarea
-            name="Previous trip"
-            placeholder="I went to Barcelona and loved..."
-          ></textarea>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- 10 FINAL -->
-
-    <div class="form-card">
-
-      <div class="section-number">
-        10 — LAST THING
-      </div>
-
-      <h3>
-        Anything else we should know?
-      </h3>
-
-      <div class="grid">
-
-        <div class="full">
-
-          <label>
-            Dietary preferences or requirements
-          </label>
-
-          <input
-            type="text"
-            name="Dietary requirements"
-            placeholder="Vegetarian, vegan, allergies..."
-          >
-
-        </div>
-
-
-        <div class="full">
-
-          <label>
-            Accessibility requirements
-          </label>
-
-          <input
-            type="text"
-            name="Accessibility requirements"
-            placeholder="Optional"
-          >
-
-        </div>
-
-
-        <div class="full">
-
-          <label>
-            Anything else that could help us plan?
-          </label>
-
-          <textarea
-            name="Additional notes"
-            placeholder="Tell us anything else..."
-          ></textarea>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- SUBMIT -->
-
-    <div class="submit-area">
-
-      <button
-        type="submit"
-        class="submit-button"
-      >
-        BUILD MY TRIP →
+      <button class="auth-button" onclick="demoSignIn()">
+        SIGN IN →
       </button>
 
-      <div class="privacy">
-        We'll use your information only to respond to your trip request.
+      <div class="auth-switch">
+        New to GoYoung?
+        <button onclick="showSignup()">Create an account</button>
+      </div>
+
+      <div class="demo-note">
+        Prototype login. Before accepting real users, this will be
+        connected to secure authentication.
       </div>
 
     </div>
 
-  </form>
+
+    <!-- CREATE ACCOUNT -->
+
+    <div class="auth-box" id="signupBox">
+
+      <div class="small-title">JOIN GOYOUNG</div>
+
+      <h2>Create your account.</h2>
+
+      <p class="auth-subtitle">
+        One profile. Every trip built around you.
+      </p>
+
+      <div class="auth-field">
+        <label>First name</label>
+        <input
+          id="signupName"
+          type="text"
+          placeholder="Tommaso"
+        >
+      </div>
+
+      <div class="auth-field">
+        <label>Email</label>
+        <input
+          id="signupEmail"
+          type="email"
+          placeholder="you@email.com"
+        >
+      </div>
+
+      <div class="auth-field">
+        <label>Password</label>
+        <input
+          id="signupPassword"
+          type="password"
+          placeholder="Create a password"
+        >
+      </div>
+
+      <div class="auth-field">
+        <label>Date of birth</label>
+        <input
+          id="signupBirth"
+          type="date"
+        >
+      </div>
+
+      <div class="auth-field">
+        <label>Country</label>
+        <input
+          id="signupCountry"
+          type="text"
+          placeholder="Italy"
+        >
+      </div>
+
+      <button class="auth-button" onclick="demoCreateAccount()">
+        CREATE ACCOUNT →
+      </button>
+
+      <div class="auth-switch">
+        Already have an account?
+        <button onclick="showSignin()">Sign in</button>
+      </div>
+
+      <div class="demo-note">
+        Prototype only. Passwords are not being stored.
+      </div>
+
+    </div>
+
+  </div>
 
 </section>
 
 
-<!-- FOOTER -->
+<!-- ======================================================
+     EXISTING GOYOUNG WEBSITE
+====================================================== -->
 
-<footer>
+<div id="mainWebsite">
 
-  <div class="footer-logo">
-    GOYOUNG
-  </div>
+  <nav>
 
-  <div class="footer-text">
-    Your next trip starts here.
-  </div>
+    <div class="logo">GOYOUNG</div>
 
-</footer>
+    <div class="nav-right">
+      <span id="welcomeUser">Your next trip starts here.</span>
+
+      <button class="signout" onclick="signOut()">
+        Sign out
+      </button>
+    </div>
+
+  </nav>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="small-title">
+        PERSONAL TRAVEL PLANNING
+      </div>
+
+      <h1>
+        Tell us your dream.<br>
+        We'll plan the trip.
+      </h1>
+
+      <p>
+        Tell us where you want to go, what you love,
+        who you're travelling with and how much you want
+        to spend. We'll build a trip around you.
+      </p>
+
+      <a href="#planner" class="hero-button">
+        Start planning →
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- INTRO -->
+
+  <section class="intro">
+
+    <h2>No generic itineraries.</h2>
+
+    <p>
+      Every trip is different. Tell us what you're looking
+      for and we'll personally create a travel plan that
+      fits your budget, your style and the people you're
+      travelling with.
+    </p>
+
+  </section>
+
+
+  <!-- FORM -->
+
+  <section class="form-section" id="planner">
+
+    <div class="form-header">
+
+      <div class="small-title">YOUR TRIP</div>
+
+      <h2>Let's build something good.</h2>
+
+      <p>
+        The more you tell us, the better we can plan your trip.
+      </p>
+
+    </div>
+
+
+    <form
+      action="https://formspree.io/f/moevydkv"
+      method="POST"
+    >
+
+      <input
+        type="hidden"
+        name="_subject"
+        value="New GoYoung Trip Request"
+      >
+
+
+      <!-- 01 ABOUT YOU -->
+
+      <div class="form-card">
+
+        <div class="section-number">
+          01 — ABOUT YOU
+        </div>
+
+        <h3>First, who are you?</h3>
+
+        <div class="grid">
+
+          <div>
+            <label>First name *</label>
+
+            <input
+              id="tripName"
+              type="text"
+              name="First name"
+              required
+              placeholder="Emma"
+            >
+          </div>
+
+
+          <div>
+            <label>Your email *</label>
+
+            <input
+              id="tripEmail"
+              type="email"
+              name="email"
+              required
+              placeholder="you@email.com"
+            >
+          </div>
+
+
+          <div>
+            <label>Your age *</label>
+
+            <input
+              type="number"
+              name="Age"
+              required
+              min="13"
+              max="99"
+              placeholder="17"
+            >
+          </div>
+
+
+          <div>
+            <label>Where do you live?</label>
+
+            <input
+              id="tripCountry"
+              type="text"
+              name="Country"
+              placeholder="United Kingdom"
+            >
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- 02 GROUP -->
+
+      <div class="form-card">
+
+        <div class="section-number">
+          02 — YOUR GROUP
+        </div>
+
+        <h3>Who's coming?</h3>
+
+        <div class="grid">
+
+          <div>
+            <label>Number of travellers *</label>
+
+            <input
+              type="number"
+              name="Number of travellers"
+              min="1"
+              required
+              placeholder="4"
+            >
+          </div>
+
+
+          <div>
+            <label>Ages of the other travellers</label>
+
+            <input
+              type="text"
+              name="Traveller ages"
+              placeholder="16, 17, 17"
+            >
+          </div>
+
+
+          <div>
+            <label>Who are you travelling with?</label>
+
+            <select name="Group type">
+              <option>Friends</option>
+              <option>Partner</option>
+              <option>Family</option>
+              <option>Solo</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+
+          <div>
+            <label>Anyone 18+ travelling?</label>
+
+            <select name="Someone over 18">
+              <option value="">Choose</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- 03 WHEN -->
+
+      <div class="form-card">
+
+        <div class="section-number">
+          03 — WHEN
+        </div>
+
+        <h3>When are we going?</h3>
+
+        <div class="grid">
+
+          <div>
+            <label>Departure date</label>
+            <input type="date" name="Departure date">
+          </div>
+
+          <div>
+            <label>Return date</label>
+            <input type="date" name="Return date">
+          </div>
+
+          <div class="full">
+            <label>How flexible are your dates?</label>
+
+            <select name="Date flexibility">
+              <option>Exact dates</option>
+              <option>± 1 day</option>
+              <option>± 2–3 days</option>
+              <option>Very flexible</option>
+              <option>I don't know yet</option>
+            </select>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- 04 WHERE -->
+
+      <div class="form-card">
+
+        <div class="section-number">
+          04 — WHERE
+        </div>
+
+        <h3>Where do you want to go?</h3>
+
+        <div class="grid">
+
+          <div class="full">
+            <label>Leaving from *</label>
+
+            <input
+              type="text"
+              name="Leaving from"
+              required
+              placeholder="Cardiff"
+            >
+          </div>
+
+
+          <div class="full">
+            <label>Destination</label>
+
+            <input
+              type="text"
+              name="Destination"
+              placeholder="Barcelona, Paris... or write SURPRISE ME"
+            >
+          </div>
+
+
+          <div class="full">
+            <label>Other destinations you're considering</label>
+
+            <input
+              type="text"
+              name="Other destinations"
+              placeholder="Lisbon, Milan, Amsterdam..."
+            >
+          </div>
+
+
+          <div class="full">
+            <label>How far are you willing to travel?</label>
+
+            <select name="Travel distance">
+              <option>Anywhere</option>
+              <option>My country only</option>
+              <option>Europe</option>
+              <option>Maximum 2 hours away</option>
+              <option>Maximum 4 hours away</option>
+            </select>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- 05 BUDGET -->
+
+      <div class="form-card">
+
+        <div class="section-number">
+          05 — BUDGET
+        </div>
+
+        <h3>What's the budget?</h3>
+
+        <div class="grid">
+
+          <div>
+            <label>Maximum budget per person *</label>
+
+            <input
+              type="number"
+              name="Budget per person"
+              required
+              placeholder="200"
+            >
+          </div>
+
+
+          <div>
+            <label>Currency</label>
+
+            <select name="Currency">
+              <option>GBP £</option>
+              <option>EUR €</option>
+              <option>USD $</option>
+            </select>
+          </div>
+
+
+          <div class="full">
+            <label>How strict is the budget?</label>
+
+            <select name="Budget flexibility">
+              <option>Must stay under it</option>
+              <option>Can go slightly above for something worth it</option>
+              <option>It's just an estimate</option>
+            </select>
+          </div>
+
+
+          <div class="full">
+            <label>What should the budget include?</label>
+
+            <select name="Budget includes">
+              <option>Everything</option>
+              <option>Transport + accommodation</option>
+              <option>Accommodation only</option>
+              <option>Transport only</option>
+            </select>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- 06 STYLE -->
+
+      <div class="form-card">
+
+        <div class="section-number">
+          06 — YOUR STYLE
+        </div>
+
+        <h3>What's your kind of trip?</h3>
+
+        <div class="options">
+
+          <div class="option">
+            <input type="checkbox" id="beach" name="Trip style" value="Beach">
+            <label for="beach">🏖 Beach</label>
+          </div>
+
+          <div class="option">
+            <input type="checkbox" id="city" name="Trip style" value="Big city">
+            <label for="city">🌃 Big city</label>
+          </div>
+
+          <div class="option">
+            <input type="checkbox" id="nightlife" name="Trip style" value="Going out">
+            <label for="nightlife">🎉 Going out</label>
+          </div>
+
+          <div class="option">
+            <input type="checkbox" id="shopping" name="Trip style" value="Shopping">
+            <label for="shopping">🛍 Shopping</label>
+          </div>
+
+          <div class="option">
+            <input type="checkbox" id="food" name="Trip style" value="Food">
+            <label for="food">🍕 Food</label>
+          </div>
+
+          <div class="option">
+            <input type="checkbox" id="culture" name="Trip style" value="Culture">
+            <label for="culture">🎨 Art & culture</label>
+          </div>
+
+          <div class="option">
+            <input type="checkbox" id="adventure" name="Trip style" value="Adventure">
+            <label for="adventure">🏔 Adventure</label>
+          </div>
+
+          <div class="option">
+            <input type="checkbox" id="nature" name="Trip style" value="Nature">
+            <label for="nature">🌿 Nature</label>
+          </div>
+
+          <div class="option">
+            <input type="checkbox" id="photos" name="Trip style" value="Photo spots">
+            <label for="photos">📸 Photo spots</label>
+          </div>
+
+          <div class="option">
+            <input type="checkbox" id="sport" name="Trip style" value="Sport">
+            <label for="sport">⚽ Sport</label>
+          </div>
+
+          <div class="option">
+            <input type="checkbox" id="music" name="Trip style" value="Music">
+            <label for="music">🎵 Music</label>
+          </div>
+
+          <div class="option">
+            <input type="checkbox" id="relax" name="Trip style" value="Relax">
+            <label for="relax">😴 Relax</label>
+          </div>
+
+          <div class="option">
+            <input type="checkbox" id="cheap" name="Trip style" value="Cheap">
+            <label for="cheap">💸 Cheap & fun</label>
+          </div>
+
+          <div class="option">
+            <input type="checkbox" id="unusual" name="Trip style" value="Something unusual">
+            <label for="unusual">✨ Something unusual</label>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- 07 STAY -->
+
+      <div class="form-card">
+
+        <div class="section-number">
+          07 — STAY
+        </div>
+
+        <h3>Where would you stay?</h3>
+
+        <div class="grid">
+
+          <div>
+            <label>Accommodation</label>
+
+            <select name="Accommodation">
+              <option>Don't care</option>
+              <option>Hotel</option>
+              <option>Hostel</option>
+              <option>Apartment</option>
+              <option>B&B</option>
+            </select>
+          </div>
+
+
+          <div>
+            <label>What's most important?</label>
+
+            <select name="Accommodation priority">
+              <option>Best balance</option>
+              <option>Cheapest possible</option>
+              <option>Best location</option>
+              <option>Nice accommodation</option>
+            </select>
+          </div>
+
+
+          <div class="full">
+            <label>
+              Would you share a room with people you don't know?
+            </label>
+
+            <select name="Shared room">
+              <option>No</option>
+              <option>Yes</option>
+              <option>Maybe</option>
+            </select>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- 08 TRANSPORT -->
+
+      <div class="form-card">
+
+        <div class="section-number">
+          08 — GETTING THERE
+        </div>
+
+        <h3>How do you want to travel?</h3>
+
+        <div class="grid">
+
+          <div>
+            <label>Preferred transport</label>
+
+            <select name="Preferred transport">
+              <option>Find me the best option</option>
+              <option>Plane</option>
+              <option>Train</option>
+              <option>Coach</option>
+              <option>Car</option>
+              <option>Ferry</option>
+            </select>
+          </div>
+
+
+          <div>
+            <label>Maximum travel time</label>
+
+            <select name="Maximum travel time">
+              <option>Don't care</option>
+              <option>2 hours</option>
+              <option>4 hours</option>
+              <option>6 hours</option>
+              <option>8 hours</option>
+              <option>More than 8 hours is fine</option>
+            </select>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- 09 PERSONALISE -->
+
+      <div class="form-card">
+
+        <div class="section-number">
+          09 — MAKE IT YOURS
+        </div>
+
+        <h3>Now tell us what you actually want.</h3>
+
+        <div class="grid">
+
+          <div class="full">
+            <label>
+              What would make you come home and say
+              "that was an amazing trip"?
+            </label>
+
+            <textarea
+              name="Dream trip"
+              placeholder="Tell us what your ideal trip feels like..."
+            ></textarea>
+          </div>
+
+
+          <div class="full">
+            <label>What are 3 things you definitely want?</label>
+
+            <textarea
+              name="Must haves"
+              placeholder="Great food, beach, somewhere lively..."
+            ></textarea>
+          </div>
+
+
+          <div class="full">
+            <label>Anything you definitely DON'T want?</label>
+
+            <textarea
+              name="Things to avoid"
+              placeholder="Long journeys, museums, very touristy places..."
+            ></textarea>
+          </div>
+
+
+          <div class="full">
+            <label>
+              Have you been on a trip you loved before?
+              What did you like about it?
+            </label>
+
+            <textarea
+              name="Previous trip"
+              placeholder="I went to Barcelona and loved..."
+            ></textarea>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- 10 FINAL -->
+
+      <div class="form-card">
+
+        <div class="section-number">
+          10 — LAST THING
+        </div>
+
+        <h3>Anything else we should know?</h3>
+
+        <div class="grid">
+
+          <div class="full">
+            <label>Dietary preferences or requirements</label>
+
+            <input
+              type="text"
+              name="Dietary requirements"
+              placeholder="Vegetarian, vegan, allergies..."
+            >
+          </div>
+
+
+          <div class="full">
+            <label>Accessibility requirements</label>
+
+            <input
+              type="text"
+              name="Accessibility requirements"
+              placeholder="Optional"
+            >
+          </div>
+
+
+          <div class="full">
+            <label>Anything else that could help us plan?</label>
+
+            <textarea
+              name="Additional notes"
+              placeholder="Tell us anything else..."
+            ></textarea>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- SUBMIT -->
+
+      <div class="submit-area">
+
+        <button
+          type="submit"
+          class="submit-button"
+        >
+          BUILD MY TRIP →
+        </button>
+
+        <div class="privacy">
+          We'll use your information only to respond to your trip request.
+        </div>
+
+      </div>
+
+    </form>
+
+  </section>
+
+
+  <footer>
+
+    <div class="footer-logo">
+      GOYOUNG
+    </div>
+
+    <div class="footer-text">
+      Your next trip starts here.
+    </div>
+
+  </footer>
+
+</div>
+
+
+<script>
+
+  /*
+    =========================================================
+    TEMPORARY PROTOTYPE AUTHENTICATION
+
+    This DOES NOT create or store real user accounts.
+    We will later replace these functions with Supabase Auth.
+    =========================================================
+  */
+
+
+  function showSignup() {
+
+    document.getElementById("signinBox").style.display = "none";
+    document.getElementById("signupBox").style.display = "block";
+
+  }
+
+
+  function showSignin() {
+
+    document.getElementById("signupBox").style.display = "none";
+    document.getElementById("signinBox").style.display = "block";
+
+  }
+
+
+  function demoCreateAccount() {
+
+    const name =
+      document.getElementById("signupName").value.trim();
+
+    const email =
+      document.getElementById("signupEmail").value.trim();
+
+    const password =
+      document.getElementById("signupPassword").value;
+
+    const country =
+      document.getElementById("signupCountry").value.trim();
+
+
+    if (!name || !email || !password) {
+
+      alert("Please complete your name, email and password.");
+
+      return;
+    }
+
+
+    /*
+      IMPORTANT:
+      We deliberately DO NOT save the password anywhere.
+    */
+
+    enterGoYoung(name, email, country);
+
+  }
+
+
+  function demoSignIn() {
+
+    const email =
+      document.getElementById("signinEmail").value.trim();
+
+    const password =
+      document.getElementById("signinPassword").value;
+
+
+    if (!email || !password) {
+
+      alert("Please enter your email and password.");
+
+      return;
+    }
+
+
+    /*
+      This is only a visual prototype.
+      Any email/password will currently enter the site.
+    */
+
+    const name =
+      email.split("@")[0];
+
+    enterGoYoung(name, email, "");
+
+  }
+
+
+  function enterGoYoung(name, email, country) {
+
+    document.getElementById("authPage").style.display = "none";
+
+    document.getElementById("mainWebsite").style.display = "block";
+
+
+    if (name) {
+
+      document.getElementById("welcomeUser").textContent =
+        "Hi, " + name;
+
+      document.getElementById("tripName").value =
+        name;
+
+    }
+
+
+    if (email) {
+
+      document.getElementById("tripEmail").value =
+        email;
+
+    }
+
+
+    if (country) {
+
+      document.getElementById("tripCountry").value =
+        country;
+
+    }
+
+
+    window.scrollTo(0, 0);
+
+  }
+
+
+  function signOut() {
+
+    document.getElementById("mainWebsite").style.display = "none";
+
+    document.getElementById("authPage").style.display = "flex";
+
+    showSignin();
+
+    window.scrollTo(0, 0);
+
+  }
+
+</script>
 
 
 </body>
-
 </html>
