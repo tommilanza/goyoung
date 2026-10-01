@@ -9,6 +9,10 @@
 
 <style>
 
+/* ================================
+   GLOBAL
+================================ */
+
 * {
     box-sizing: border-box;
 }
@@ -24,13 +28,33 @@ body {
     color: #151515;
 }
 
-button, input, select, textarea {
+button,
+input,
+select,
+textarea {
     font-family: inherit;
 }
 
-/* =====================================
-   LOGIN / SIGN UP
-===================================== */
+button {
+    transition: transform .2s, opacity .2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+.small-title {
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+
+/* ================================
+   AUTH
+================================ */
 
 #authPage {
     min-height: 100vh;
@@ -58,10 +82,11 @@ button, input, select, textarea {
     max-width: 560px;
 }
 
-.eyebrow {
+.auth-message .eyebrow {
     font-size: 12px;
     font-weight: bold;
     letter-spacing: 2px;
+    text-transform: uppercase;
     color: #999;
     margin-bottom: 25px;
 }
@@ -77,6 +102,7 @@ button, input, select, textarea {
     font-size: 18px;
     line-height: 1.7;
     color: #aaa;
+    max-width: 480px;
 }
 
 .auth-footer {
@@ -107,6 +133,7 @@ button, input, select, textarea {
 .auth-subtitle {
     color: #777;
     margin-bottom: 40px;
+    line-height: 1.5;
 }
 
 .auth-field {
@@ -122,8 +149,9 @@ button, input, select, textarea {
 
 .auth-field input {
     width: 100%;
-    padding: 16px;
     border: 1px solid #ddd;
+    background: white;
+    padding: 16px;
     border-radius: 12px;
     font-size: 15px;
 }
@@ -139,8 +167,9 @@ button, input, select, textarea {
     border: none;
     background: #111;
     color: white;
-    padding: 17px;
+    padding: 17px 20px;
     border-radius: 50px;
+    font-size: 15px;
     font-weight: bold;
     cursor: pointer;
 }
@@ -155,24 +184,38 @@ button, input, select, textarea {
 .auth-switch button {
     border: none;
     background: none;
-    text-decoration: underline;
     font-weight: bold;
+    text-decoration: underline;
     cursor: pointer;
+    color: #111;
+}
+
+.auth-note {
+    background: #fff8dd;
+    border: 1px solid #eee2aa;
+    padding: 13px;
+    border-radius: 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    margin-top: 25px;
+    color: #665b30;
 }
 
 #signupBox {
     display: none;
 }
 
-/* =====================================
+
+/* ================================
    MAIN WEBSITE
-===================================== */
+================================ */
 
 #mainWebsite {
     display: none;
 }
 
-nav {
+nav,
+.page-nav {
     height: 75px;
     padding: 0 7%;
     display: flex;
@@ -180,6 +223,12 @@ nav {
     justify-content: space-between;
     background: white;
     border-bottom: 1px solid #eee;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .logo {
@@ -190,24 +239,29 @@ nav {
 
 .nav-right {
     display: flex;
-    gap: 18px;
     align-items: center;
+    gap: 20px;
     font-size: 14px;
     color: #666;
 }
 
-.signout {
-    background: white;
+.signout,
+.back-button {
     border: 1px solid #ddd;
-    padding: 9px 15px;
+    background: white;
     border-radius: 50px;
+    padding: 9px 15px;
     cursor: pointer;
+    font-weight: bold;
 }
 
-/* HERO */
+
+/* ================================
+   HERO
+================================ */
 
 .hero {
-    min-height: 540px;
+    min-height: 560px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -216,15 +270,7 @@ nav {
 }
 
 .hero-content {
-    max-width: 850px;
-}
-
-.small-title {
-    text-transform: uppercase;
-    font-size: 12px;
-    letter-spacing: 2px;
-    font-weight: bold;
-    margin-bottom: 25px;
+    max-width: 900px;
 }
 
 .hero h1 {
@@ -235,7 +281,7 @@ nav {
 }
 
 .hero p {
-    max-width: 580px;
+    max-width: 610px;
     margin: 30px auto;
     font-size: 20px;
     line-height: 1.6;
@@ -244,15 +290,18 @@ nav {
 
 .main-button {
     display: inline-block;
-    border: none;
     background: #111;
     color: white;
     padding: 17px 30px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: bold;
-    cursor: pointer;
 }
+
+
+/* ================================
+   INTRO
+================================ */
 
 .intro {
     background: #111;
@@ -263,20 +312,112 @@ nav {
 
 .intro h2 {
     font-size: 42px;
+    margin: 0 0 20px;
     letter-spacing: -2px;
 }
 
 .intro p {
-    max-width: 650px;
+    max-width: 680px;
     margin: auto;
     line-height: 1.7;
     color: #bbb;
     font-size: 18px;
 }
 
-/* =====================================
+
+/* ================================
+   PRODUCT PREVIEW
+================================ */
+
+.products-preview {
+    padding: 100px 7%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.products-heading {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.products-heading h2 {
+    font-size: 50px;
+    letter-spacing: -3px;
+    margin: 0 0 15px;
+}
+
+.products-heading p {
+    color: #666;
+    font-size: 18px;
+}
+
+.preview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.preview-card {
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 26px;
+    padding: 40px;
+}
+
+.preview-card.featured {
+    background: #111;
+    color: white;
+}
+
+.plan-name {
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.plan-price {
+    font-size: 54px;
+    font-weight: 900;
+    letter-spacing: -3px;
+    margin: 20px 0 5px;
+}
+
+.plan-price span {
+    font-size: 15px;
+    font-weight: normal;
+    letter-spacing: 0;
+    color: #777;
+}
+
+.featured .plan-price span {
+    color: #999;
+}
+
+.plan-tagline {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 25px 0 10px;
+}
+
+.plan-description {
+    color: #777;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.featured .plan-description {
+    color: #aaa;
+}
+
+.mini-feature {
+    padding: 8px 0;
+    font-size: 15px;
+}
+
+
+/* ================================
    FORM
-===================================== */
+================================ */
 
 .form-section {
     max-width: 900px;
@@ -347,6 +488,14 @@ nav {
     font-size: 15px;
 }
 
+.form-card input:focus,
+.form-card select:focus,
+.form-card textarea:focus {
+    outline: none;
+    border-color: #111;
+    background: white;
+}
+
 textarea {
     resize: vertical;
     min-height: 110px;
@@ -368,6 +517,7 @@ textarea {
     border-radius: 50px;
     cursor: pointer;
     font-weight: normal;
+    margin: 0;
     background: white;
 }
 
@@ -399,106 +549,213 @@ textarea {
     margin-top: 20px;
 }
 
-/* =====================================
-   PAYMENT PAGE
-===================================== */
 
-#paymentPage {
+/* ================================
+   PLAN SELECTION PAGE
+================================ */
+
+#planPage {
     display: none;
     min-height: 100vh;
-    background: #f6f6f3;
 }
 
-.payment-nav {
-    height: 75px;
-    padding: 0 7%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: white;
-    border-bottom: 1px solid #eee;
-}
-
-.back-button {
-    border: none;
-    background: none;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-.payment-container {
-    max-width: 1050px;
+.plan-container {
+    max-width: 1150px;
     margin: auto;
-    padding: 90px 25px;
+    padding: 80px 25px 120px;
 }
 
-.payment-heading {
+.plan-heading {
     text-align: center;
-    margin-bottom: 55px;
+    margin-bottom: 60px;
 }
 
-.payment-heading .small-title {
-    margin-bottom: 15px;
-}
-
-.payment-heading h1 {
-    font-size: 54px;
+.plan-heading h1 {
+    font-size: 58px;
+    line-height: 1;
     letter-spacing: -3px;
-    margin: 0 0 18px;
+    margin: 0 0 20px;
 }
 
-.payment-heading p {
+.plan-heading p {
+    font-size: 19px;
+    color: #666;
+}
+
+.plan-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.plan-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 28px;
+    padding: 45px;
+    display: flex;
+    flex-direction: column;
+}
+
+.plan-card.full-plan {
+    background: #111;
+    color: white;
+    border-color: #111;
+}
+
+.plan-card h2 {
+    font-size: 34px;
+    letter-spacing: -1.5px;
+    margin: 10px 0 5px;
+}
+
+.plan-card .description {
+    line-height: 1.6;
+    color: #777;
+    min-height: 75px;
+}
+
+.full-plan .description {
+    color: #aaa;
+}
+
+.plan-features {
+    border-top: 1px solid #eee;
+    padding-top: 25px;
+    margin-top: 25px;
+    flex-grow: 1;
+}
+
+.full-plan .plan-features {
+    border-color: #333;
+}
+
+.plan-feature {
+    padding: 9px 0;
+    line-height: 1.5;
+}
+
+.not-included {
+    color: #aaa;
+}
+
+.plan-button {
+    width: 100%;
+    margin-top: 35px;
+    border: none;
+    background: #111;
+    color: white;
+    padding: 19px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.full-plan .plan-button {
+    background: white;
+    color: #111;
+}
+
+.plan-bottom-message {
+    text-align: center;
+    margin-top: 45px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+/* ================================
+   CHECKOUT
+================================ */
+
+#checkoutPage {
+    display: none;
+    min-height: 100vh;
+}
+
+.checkout-container {
+    max-width: 760px;
+    margin: auto;
+    padding: 80px 25px 120px;
+}
+
+.checkout-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.checkout-heading h1 {
+    font-size: 50px;
+    letter-spacing: -3px;
+    margin: 0 0 15px;
+}
+
+.checkout-heading p {
     color: #666;
     font-size: 18px;
 }
 
 .checkout-card {
-    max-width: 720px;
-    margin: auto;
     background: white;
     border-radius: 28px;
-    padding: 50px;
+    padding: 45px;
     box-shadow: 0 10px 40px rgba(0,0,0,.05);
 }
 
-.product-label {
-    font-size: 12px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    color: #999;
-}
-
-.checkout-card h2 {
-    font-size: 34px;
-    margin: 10px 0;
-    letter-spacing: -1.5px;
-}
-
-.price {
-    font-size: 60px;
-    font-weight: 900;
-    letter-spacing: -3px;
-    margin: 30px 0;
-}
-
-.price span {
-    font-size: 16px;
-    font-weight: normal;
-    letter-spacing: 0;
-    color: #777;
-}
-
-.features {
-    border-top: 1px solid #eee;
+.checkout-product {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: flex-start;
     border-bottom: 1px solid #eee;
-    padding: 25px 0;
-    margin-bottom: 30px;
+    padding-bottom: 30px;
 }
 
-.feature {
-    padding: 8px 0;
+.checkout-product h2 {
+    margin: 5px 0;
+    font-size: 28px;
+}
+
+.checkout-product p {
+    margin: 0;
+    color: #777;
+    line-height: 1.5;
+}
+
+.checkout-price {
+    font-size: 36px;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.checkout-details {
+    margin-top: 30px;
+}
+
+.checkout-details label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 0 0 8px;
+}
+
+.checkout-details input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 20px;
     font-size: 15px;
+}
+
+.order-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 21px;
+    border-top: 1px solid #eee;
+    padding-top: 25px;
+    margin-top: 10px;
 }
 
 .pay-button {
@@ -511,15 +768,21 @@ textarea {
     font-size: 17px;
     font-weight: bold;
     cursor: pointer;
+    margin-top: 30px;
 }
 
-.payment-explanation {
+.checkout-note {
+    text-align: center;
     font-size: 12px;
     line-height: 1.6;
     color: #888;
-    text-align: center;
     margin-top: 20px;
 }
+
+
+/* ================================
+   FOOTER
+================================ */
 
 footer {
     background: #111;
@@ -539,7 +802,10 @@ footer {
     font-size: 13px;
 }
 
-/* MOBILE */
+
+/* ================================
+   MOBILE
+================================ */
 
 @media(max-width: 800px) {
 
@@ -563,6 +829,7 @@ footer {
 
     .auth-message h1 {
         font-size: 48px;
+        letter-spacing: -3px;
     }
 
     .auth-right {
@@ -574,6 +841,13 @@ footer {
         letter-spacing: -2px;
     }
 
+    .products-heading h2,
+    .form-header h2 {
+        font-size: 38px;
+    }
+
+    .preview-grid,
+    .plan-grid,
     .grid {
         grid-template-columns: 1fr;
     }
@@ -582,16 +856,22 @@ footer {
         grid-column: auto;
     }
 
-    .form-card {
+    .form-card,
+    .plan-card,
+    .checkout-card {
         padding: 28px 20px;
     }
 
-    .checkout-card {
-        padding: 30px 22px;
+    .plan-heading h1 {
+        font-size: 42px;
     }
 
-    .payment-heading h1 {
+    .checkout-heading h1 {
         font-size: 40px;
+    }
+
+    .nav-right span {
+        display: none;
     }
 
     footer {
@@ -603,12 +883,13 @@ footer {
 </style>
 </head>
 
+
 <body>
 
 
-<!-- =====================================
-     AUTH
-===================================== -->
+<!-- ==================================================
+     LOGIN
+================================================== -->
 
 <section id="authPage">
 
@@ -645,8 +926,6 @@ footer {
 
 <div class="auth-right">
 
-    <!-- SIGN IN -->
-
     <div class="auth-box" id="signinBox">
 
         <div class="small-title">
@@ -661,20 +940,26 @@ footer {
 
         <div class="auth-field">
             <label>Email</label>
-            <input id="signinEmail"
-                   type="email"
-                   placeholder="you@email.com">
+            <input
+                id="signinEmail"
+                type="email"
+                placeholder="you@email.com"
+            >
         </div>
 
         <div class="auth-field">
             <label>Password</label>
-            <input id="signinPassword"
-                   type="password"
-                   placeholder="Your password">
+            <input
+                id="signinPassword"
+                type="password"
+                placeholder="Your password"
+            >
         </div>
 
-        <button class="auth-button"
-                onclick="demoSignIn()">
+        <button
+            class="auth-button"
+            onclick="demoSignIn()"
+        >
             SIGN IN →
         </button>
 
@@ -685,10 +970,13 @@ footer {
             </button>
         </div>
 
+        <div class="auth-note">
+            Prototype login. We'll connect secure user accounts
+            before launching publicly.
+        </div>
+
     </div>
 
-
-    <!-- SIGN UP -->
 
     <div class="auth-box" id="signupBox">
 
@@ -704,40 +992,52 @@ footer {
 
         <div class="auth-field">
             <label>First name</label>
-            <input id="signupName"
-                   type="text"
-                   placeholder="Tommaso">
+            <input
+                id="signupName"
+                type="text"
+                placeholder="Tommaso"
+            >
         </div>
 
         <div class="auth-field">
             <label>Email</label>
-            <input id="signupEmail"
-                   type="email"
-                   placeholder="you@email.com">
+            <input
+                id="signupEmail"
+                type="email"
+                placeholder="you@email.com"
+            >
         </div>
 
         <div class="auth-field">
             <label>Password</label>
-            <input id="signupPassword"
-                   type="password"
-                   placeholder="Create a password">
+            <input
+                id="signupPassword"
+                type="password"
+                placeholder="Create a password"
+            >
         </div>
 
         <div class="auth-field">
             <label>Date of birth</label>
-            <input id="signupBirth"
-                   type="date">
+            <input
+                id="signupBirth"
+                type="date"
+            >
         </div>
 
         <div class="auth-field">
             <label>Country</label>
-            <input id="signupCountry"
-                   type="text"
-                   placeholder="Italy">
+            <input
+                id="signupCountry"
+                type="text"
+                placeholder="Italy"
+            >
         </div>
 
-        <button class="auth-button"
-                onclick="demoCreateAccount()">
+        <button
+            class="auth-button"
+            onclick="demoCreateAccount()"
+        >
             CREATE ACCOUNT →
         </button>
 
@@ -755,15 +1055,18 @@ footer {
 </section>
 
 
-<!-- =====================================
+
+<!-- ==================================================
      MAIN WEBSITE
-===================================== -->
+================================================== -->
 
 <div id="mainWebsite">
 
 <nav>
 
-    <div class="logo">GOYOUNG</div>
+    <div class="logo">
+        GOYOUNG
+    </div>
 
     <div class="nav-right">
 
@@ -771,8 +1074,10 @@ footer {
             Your next trip starts here.
         </span>
 
-        <button class="signout"
-                onclick="signOut()">
+        <button
+            class="signout"
+            onclick="signOut()"
+        >
             Sign out
         </button>
 
@@ -780,6 +1085,8 @@ footer {
 
 </nav>
 
+
+<!-- HERO -->
 
 <section class="hero">
 
@@ -791,16 +1098,18 @@ footer {
 
     <h1>
         Tell us your dream.<br>
-        We'll plan the trip.
+        We'll figure it out.
     </h1>
 
     <p>
-        Tell us where you want to go, what you love,
-        who you're travelling with and how much you want
-        to spend. We'll build a trip around you.
+        Tell us your budget, dates and what you're into.
+        We'll research a trip that actually works for you.
     </p>
 
-    <a href="#planner" class="main-button">
+    <a
+        href="#planner"
+        class="main-button"
+    >
         Start planning →
     </a>
 
@@ -809,25 +1118,158 @@ footer {
 </section>
 
 
+<!-- INTRO -->
+
 <section class="intro">
 
-    <h2>No generic itineraries.</h2>
+    <h2>
+        Good trips shouldn't cost hundreds to plan.
+    </h2>
 
     <p>
-        Every trip is different. Tell us what you're looking
-        for and we'll personally create a travel plan that
-        fits your budget, your style and the people you're
-        travelling with.
+        Whether you just need help finding the essentials
+        or want your whole trip planned day by day,
+        GoYoung gives you the level of help you actually need.
     </p>
 
 </section>
 
 
-<!-- =====================================
-     TRIP FORM
-===================================== -->
+<!-- PRODUCT PREVIEW -->
 
-<section class="form-section" id="planner">
+<section class="products-preview">
+
+<div class="products-heading">
+
+    <div class="small-title">
+        TWO WAYS TO GO
+    </div>
+
+    <h2>
+        How much planning do you want?
+    </h2>
+
+    <p>
+        Quick finds your trip. Full plans your trip.
+    </p>
+
+</div>
+
+
+<div class="preview-grid">
+
+
+<!-- QUICK PREVIEW -->
+
+<div class="preview-card">
+
+    <div class="plan-name">
+        QUICK
+    </div>
+
+    <div class="plan-price">
+        €15
+        <span>/ trip</span>
+    </div>
+
+    <div class="plan-tagline">
+        We'll find the essentials.
+    </div>
+
+    <p class="plan-description">
+        Perfect when you want someone to do the research
+        but you're happy to organise your days yourself.
+    </p>
+
+    <div class="mini-feature">
+        ✓ Transport options
+    </div>
+
+    <div class="mini-feature">
+        ✓ Accommodation options
+    </div>
+
+    <div class="mini-feature">
+        ✓ Ideas for things to do
+    </div>
+
+    <div class="mini-feature">
+        ✓ Direct links
+    </div>
+
+    <div class="mini-feature">
+        ✓ Estimated trip cost
+    </div>
+
+</div>
+
+
+<!-- FULL PREVIEW -->
+
+<div class="preview-card featured">
+
+    <div class="plan-name">
+        FULL
+    </div>
+
+    <div class="plan-price">
+        €60
+        <span>/ trip</span>
+    </div>
+
+    <div class="plan-tagline">
+        We'll plan the whole thing.
+    </div>
+
+    <p class="plan-description">
+        You tell us what you want. We'll turn it into
+        a detailed trip, organised day by day.
+    </p>
+
+    <div class="mini-feature">
+        ✓ Transport
+    </div>
+
+    <div class="mini-feature">
+        ✓ Accommodation
+    </div>
+
+    <div class="mini-feature">
+        ✓ Activities
+    </div>
+
+    <div class="mini-feature">
+        ✓ Day-by-day itinerary
+    </div>
+
+    <div class="mini-feature">
+        ✓ Times & travel between activities
+    </div>
+
+    <div class="mini-feature">
+        ✓ Restaurants & places to go
+    </div>
+
+    <div class="mini-feature">
+        ✓ Detailed budget
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ==================================================
+     TRIP FORM
+================================================== -->
+
+<section
+    class="form-section"
+    id="planner"
+>
 
 <div class="form-header">
 
@@ -835,20 +1277,20 @@ footer {
         YOUR TRIP
     </div>
 
-    <h2>Let's build something good.</h2>
+    <h2>
+        Tell us what you're looking for.
+    </h2>
 
     <p>
-        The more you tell us, the better we can plan your trip.
+        The more you tell us, the better we can build your trip.
     </p>
 
 </div>
 
 
-<form
-    id="tripForm"
-    action="https://formspree.io/f/moevydkv"
-    method="POST"
->
+<form id="tripForm">
+
+<!-- FORM WILL LATER BE SENT TO FORMSPREE -->
 
 <input
     type="hidden"
@@ -856,8 +1298,15 @@ footer {
     value="New GoYoung Trip Request"
 >
 
+<input
+    type="hidden"
+    id="selectedPlanField"
+    name="Selected plan"
+    value=""
+>
 
-<!-- 01 -->
+
+<!-- 01 ABOUT YOU -->
 
 <div class="form-card">
 
@@ -933,7 +1382,7 @@ footer {
 </div>
 
 
-<!-- 02 -->
+<!-- 02 GROUP -->
 
 <div class="form-card">
 
@@ -978,13 +1427,11 @@ footer {
 <label>Who are you travelling with?</label>
 
 <select name="Group type">
-
-<option>Friends</option>
-<option>Partner</option>
-<option>Family</option>
-<option>Solo</option>
-<option>Other</option>
-
+    <option>Friends</option>
+    <option>Partner</option>
+    <option>Family</option>
+    <option>Solo</option>
+    <option>Other</option>
 </select>
 
 </div>
@@ -995,11 +1442,9 @@ footer {
 <label>Anyone 18+ travelling?</label>
 
 <select name="Someone over 18">
-
-<option value="">Choose</option>
-<option>Yes</option>
-<option>No</option>
-
+    <option value="">Choose</option>
+    <option>Yes</option>
+    <option>No</option>
 </select>
 
 </div>
@@ -1009,7 +1454,7 @@ footer {
 </div>
 
 
-<!-- 03 -->
+<!-- 03 WHEN -->
 
 <div class="form-card">
 
@@ -1050,13 +1495,11 @@ footer {
 <label>How flexible are your dates?</label>
 
 <select name="Date flexibility">
-
-<option>Exact dates</option>
-<option>± 1 day</option>
-<option>± 2–3 days</option>
-<option>Very flexible</option>
-<option>I don't know yet</option>
-
+    <option>Exact dates</option>
+    <option>± 1 day</option>
+    <option>± 2–3 days</option>
+    <option>Very flexible</option>
+    <option>I don't know yet</option>
 </select>
 
 </div>
@@ -1066,7 +1509,7 @@ footer {
 </div>
 
 
-<!-- 04 -->
+<!-- 04 WHERE -->
 
 <div class="form-card">
 
@@ -1127,13 +1570,11 @@ How far are you willing to travel?
 </label>
 
 <select name="Travel distance">
-
-<option>Anywhere</option>
-<option>My country only</option>
-<option>Europe</option>
-<option>Maximum 2 hours away</option>
-<option>Maximum 4 hours away</option>
-
+    <option>Anywhere</option>
+    <option>My country only</option>
+    <option>Europe</option>
+    <option>Maximum 2 hours away</option>
+    <option>Maximum 4 hours away</option>
 </select>
 
 </div>
@@ -1143,7 +1584,7 @@ How far are you willing to travel?
 </div>
 
 
-<!-- 05 -->
+<!-- 05 BUDGET -->
 
 <div class="form-card">
 
@@ -1176,11 +1617,9 @@ Maximum budget per person *
 <label>Currency</label>
 
 <select name="Currency">
-
-<option>GBP £</option>
-<option>EUR €</option>
-<option>USD $</option>
-
+    <option>GBP £</option>
+    <option>EUR €</option>
+    <option>USD $</option>
 </select>
 
 </div>
@@ -1193,13 +1632,11 @@ How strict is the budget?
 </label>
 
 <select name="Budget flexibility">
-
-<option>Must stay under it</option>
-<option>
-Can go slightly above for something worth it
-</option>
-<option>It's just an estimate</option>
-
+    <option>Must stay under it</option>
+    <option>
+        Can go slightly above for something worth it
+    </option>
+    <option>It's just an estimate</option>
 </select>
 
 </div>
@@ -1212,12 +1649,10 @@ What should the budget include?
 </label>
 
 <select name="Budget includes">
-
-<option>Everything</option>
-<option>Transport + accommodation</option>
-<option>Accommodation only</option>
-<option>Transport only</option>
-
+    <option>Everything</option>
+    <option>Transport + accommodation</option>
+    <option>Accommodation only</option>
+    <option>Transport only</option>
 </select>
 
 </div>
@@ -1227,7 +1662,7 @@ What should the budget include?
 </div>
 
 
-<!-- 06 -->
+<!-- 06 STYLE -->
 
 <div class="form-card">
 
@@ -1240,114 +1675,72 @@ What should the budget include?
 <div class="options">
 
 <div class="option">
-<input type="checkbox"
-       id="beach"
-       name="Trip style"
-       value="Beach">
+<input type="checkbox" id="beach" name="Trip style" value="Beach">
 <label for="beach">🏖 Beach</label>
 </div>
 
 <div class="option">
-<input type="checkbox"
-       id="city"
-       name="Trip style"
-       value="Big city">
+<input type="checkbox" id="city" name="Trip style" value="Big city">
 <label for="city">🌃 Big city</label>
 </div>
 
 <div class="option">
-<input type="checkbox"
-       id="nightlife"
-       name="Trip style"
-       value="Going out">
+<input type="checkbox" id="nightlife" name="Trip style" value="Going out">
 <label for="nightlife">🎉 Going out</label>
 </div>
 
 <div class="option">
-<input type="checkbox"
-       id="shopping"
-       name="Trip style"
-       value="Shopping">
+<input type="checkbox" id="shopping" name="Trip style" value="Shopping">
 <label for="shopping">🛍 Shopping</label>
 </div>
 
 <div class="option">
-<input type="checkbox"
-       id="food"
-       name="Trip style"
-       value="Food">
+<input type="checkbox" id="food" name="Trip style" value="Food">
 <label for="food">🍕 Food</label>
 </div>
 
 <div class="option">
-<input type="checkbox"
-       id="culture"
-       name="Trip style"
-       value="Culture">
+<input type="checkbox" id="culture" name="Trip style" value="Culture">
 <label for="culture">🎨 Art & culture</label>
 </div>
 
 <div class="option">
-<input type="checkbox"
-       id="adventure"
-       name="Trip style"
-       value="Adventure">
+<input type="checkbox" id="adventure" name="Trip style" value="Adventure">
 <label for="adventure">🏔 Adventure</label>
 </div>
 
 <div class="option">
-<input type="checkbox"
-       id="nature"
-       name="Trip style"
-       value="Nature">
+<input type="checkbox" id="nature" name="Trip style" value="Nature">
 <label for="nature">🌿 Nature</label>
 </div>
 
 <div class="option">
-<input type="checkbox"
-       id="photos"
-       name="Trip style"
-       value="Photo spots">
+<input type="checkbox" id="photos" name="Trip style" value="Photo spots">
 <label for="photos">📸 Photo spots</label>
 </div>
 
 <div class="option">
-<input type="checkbox"
-       id="sport"
-       name="Trip style"
-       value="Sport">
+<input type="checkbox" id="sport" name="Trip style" value="Sport">
 <label for="sport">⚽ Sport</label>
 </div>
 
 <div class="option">
-<input type="checkbox"
-       id="music"
-       name="Trip style"
-       value="Music">
+<input type="checkbox" id="music" name="Trip style" value="Music">
 <label for="music">🎵 Music</label>
 </div>
 
 <div class="option">
-<input type="checkbox"
-       id="relax"
-       name="Trip style"
-       value="Relax">
+<input type="checkbox" id="relax" name="Trip style" value="Relax">
 <label for="relax">😴 Relax</label>
 </div>
 
 <div class="option">
-<input type="checkbox"
-       id="cheap"
-       name="Trip style"
-       value="Cheap">
+<input type="checkbox" id="cheap" name="Trip style" value="Cheap & fun">
 <label for="cheap">💸 Cheap & fun</label>
 </div>
 
 <div class="option">
-<input type="checkbox"
-       id="unusual"
-       name="Trip style"
-       value="Something unusual">
+<input type="checkbox" id="unusual" name="Trip style" value="Something unusual">
 <label for="unusual">✨ Something unusual</label>
 </div>
 
@@ -1356,7 +1749,7 @@ What should the budget include?
 </div>
 
 
-<!-- 07 -->
+<!-- 07 STAY -->
 
 <div class="form-card">
 
@@ -1373,13 +1766,11 @@ What should the budget include?
 <label>Accommodation</label>
 
 <select name="Accommodation">
-
-<option>Don't care</option>
-<option>Hotel</option>
-<option>Hostel</option>
-<option>Apartment</option>
-<option>B&B</option>
-
+    <option>Don't care</option>
+    <option>Hotel</option>
+    <option>Hostel</option>
+    <option>Apartment</option>
+    <option>B&B</option>
 </select>
 
 </div>
@@ -1387,17 +1778,13 @@ What should the budget include?
 
 <div>
 
-<label>
-What's most important?
-</label>
+<label>What's most important?</label>
 
 <select name="Accommodation priority">
-
-<option>Best balance</option>
-<option>Cheapest possible</option>
-<option>Best location</option>
-<option>Nice accommodation</option>
-
+    <option>Best balance</option>
+    <option>Cheapest possible</option>
+    <option>Best location</option>
+    <option>Nice accommodation</option>
 </select>
 
 </div>
@@ -1410,11 +1797,9 @@ Would you share a room with people you don't know?
 </label>
 
 <select name="Shared room">
-
-<option>No</option>
-<option>Yes</option>
-<option>Maybe</option>
-
+    <option>No</option>
+    <option>Yes</option>
+    <option>Maybe</option>
 </select>
 
 </div>
@@ -1424,7 +1809,7 @@ Would you share a room with people you don't know?
 </div>
 
 
-<!-- 08 -->
+<!-- 08 TRANSPORT -->
 
 <div class="form-card">
 
@@ -1438,19 +1823,15 @@ Would you share a room with people you don't know?
 
 <div>
 
-<label>
-Preferred transport
-</label>
+<label>Preferred transport</label>
 
 <select name="Preferred transport">
-
-<option>Find me the best option</option>
-<option>Plane</option>
-<option>Train</option>
-<option>Coach</option>
-<option>Car</option>
-<option>Ferry</option>
-
+    <option>Find me the best option</option>
+    <option>Plane</option>
+    <option>Train</option>
+    <option>Coach</option>
+    <option>Car</option>
+    <option>Ferry</option>
 </select>
 
 </div>
@@ -1458,19 +1839,15 @@ Preferred transport
 
 <div>
 
-<label>
-Maximum travel time
-</label>
+<label>Maximum travel time</label>
 
 <select name="Maximum travel time">
-
-<option>Don't care</option>
-<option>2 hours</option>
-<option>4 hours</option>
-<option>6 hours</option>
-<option>8 hours</option>
-<option>More than 8 hours is fine</option>
-
+    <option>Don't care</option>
+    <option>2 hours</option>
+    <option>4 hours</option>
+    <option>6 hours</option>
+    <option>8 hours</option>
+    <option>More than 8 hours is fine</option>
 </select>
 
 </div>
@@ -1480,7 +1857,7 @@ Maximum travel time
 </div>
 
 
-<!-- 09 -->
+<!-- 09 PERSONALISE -->
 
 <div class="form-card">
 
@@ -1556,7 +1933,7 @@ What did you like about it?
 </div>
 
 
-<!-- 10 -->
+<!-- 10 FINAL -->
 
 <div class="form-card">
 
@@ -1626,11 +2003,11 @@ Anything else that could help us plan?
     type="submit"
     class="submit-button"
 >
-CONTINUE — €30 →
+    SEE MY OPTIONS →
 </button>
 
 <div class="privacy">
-Your trip request will be sent to GoYoung before payment.
+    No payment yet. Choose how much help you want on the next page.
 </div>
 
 </div>
@@ -1643,11 +2020,11 @@ Your trip request will be sent to GoYoung before payment.
 <footer>
 
 <div class="footer-logo">
-GOYOUNG
+    GOYOUNG
 </div>
 
 <div class="footer-text">
-Your next trip starts here.
+    Your next trip starts here.
 </div>
 
 </footer>
@@ -1656,93 +2033,301 @@ Your next trip starts here.
 
 
 
-<!-- =====================================
-     PAYMENT PAGE
-===================================== -->
+<!-- ==================================================
+     PLAN SELECTION
+================================================== -->
 
-<section id="paymentPage">
+<section id="planPage">
 
-<div class="payment-nav">
+<div class="page-nav">
 
 <div class="logo">
-GOYOUNG
+    GOYOUNG
 </div>
 
 <button
     class="back-button"
-    onclick="backToTrip()"
+    onclick="backToForm()"
 >
-← Back to trip
+    ← Edit my trip
 </button>
 
 </div>
 
 
-<div class="payment-container">
+<div class="plan-container">
 
-<div class="payment-heading">
+<div class="plan-heading">
 
-<div class="small-title">
-ONE LAST STEP
+    <div class="small-title">
+        CHOOSE YOUR PLAN
+    </div>
+
+    <h1>
+        How much do you want us<br>
+        to figure out?
+    </h1>
+
+    <p>
+        Quick finds your trip. Full plans your trip.
+    </p>
+
 </div>
 
-<h1>
-Your trip is ready<br>
-to be planned.
-</h1>
 
-<p>
-Confirm your request and we'll start building your trip.
-</p>
+<div class="plan-grid">
+
+
+<!-- QUICK -->
+
+<div class="plan-card">
+
+    <div class="plan-name">
+        QUICK
+    </div>
+
+    <div class="plan-price">
+        €15
+        <span>/ trip</span>
+    </div>
+
+    <h2>
+        We'll find the essentials.
+    </h2>
+
+    <p class="description">
+        We do the research. You decide how to organise
+        your days once you're there.
+    </p>
+
+    <div class="plan-features">
+
+        <div class="plan-feature">
+            ✓ Transport options
+        </div>
+
+        <div class="plan-feature">
+            ✓ Accommodation options
+        </div>
+
+        <div class="plan-feature">
+            ✓ Ideas for things to do
+        </div>
+
+        <div class="plan-feature">
+            ✓ Direct links
+        </div>
+
+        <div class="plan-feature">
+            ✓ Estimated trip cost
+        </div>
+
+        <div class="plan-feature not-included">
+            — No day-by-day planning
+        </div>
+
+    </div>
+
+    <button
+        class="plan-button"
+        onclick="selectPlan('QUICK', 15)"
+    >
+        GET MY QUICK TRIP — €15 →
+    </button>
+
+</div>
+
+
+<!-- FULL -->
+
+<div class="plan-card full-plan">
+
+    <div class="plan-name">
+        FULL
+    </div>
+
+    <div class="plan-price">
+        €60
+        <span>/ trip</span>
+    </div>
+
+    <h2>
+        We'll plan the whole thing.
+    </h2>
+
+    <p class="description">
+        We find the essentials and turn them into a detailed
+        itinerary, organised around your days.
+    </p>
+
+    <div class="plan-features">
+
+        <div class="plan-feature">
+            ✓ Transport options
+        </div>
+
+        <div class="plan-feature">
+            ✓ Accommodation options
+        </div>
+
+        <div class="plan-feature">
+            ✓ Activities selected around you
+        </div>
+
+        <div class="plan-feature">
+            ✓ Detailed day-by-day itinerary
+        </div>
+
+        <div class="plan-feature">
+            ✓ Times & order of activities
+        </div>
+
+        <div class="plan-feature">
+            ✓ Travel between activities
+        </div>
+
+        <div class="plan-feature">
+            ✓ Restaurants & places to go
+        </div>
+
+        <div class="plan-feature">
+            ✓ Detailed budget
+        </div>
+
+        <div class="plan-feature">
+            ✓ Direct links
+        </div>
+
+    </div>
+
+    <button
+        class="plan-button"
+        onclick="selectPlan('FULL', 60)"
+    >
+        GET MY FULL TRIP — €60 →
+    </button>
+
+</div>
+
+</div>
+
+
+<div class="plan-bottom-message">
+    Quick finds your trip. Full plans your trip.
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ==================================================
+     CHECKOUT PAGE
+================================================== -->
+
+<section id="checkoutPage">
+
+<div class="page-nav">
+
+<div class="logo">
+    GOYOUNG
+</div>
+
+<button
+    class="back-button"
+    onclick="backToPlans()"
+>
+    ← Change plan
+</button>
+
+</div>
+
+
+<div class="checkout-container">
+
+<div class="checkout-heading">
+
+    <div class="small-title">
+        CHECKOUT
+    </div>
+
+    <h1>
+        One last step.
+    </h1>
+
+    <p>
+        Confirm your details and continue to secure payment.
+    </p>
 
 </div>
 
 
 <div class="checkout-card">
 
-<div class="product-label">
-GOYOUNG PERSONAL TRIP PLAN
+<div class="checkout-product">
+
+    <div>
+
+        <div class="plan-name">
+            GOYOUNG
+        </div>
+
+        <h2 id="checkoutPlanName">
+            QUICK TRIP
+        </h2>
+
+        <p id="checkoutPlanDescription">
+            Transport, accommodation and ideas for things to do.
+        </p>
+
+    </div>
+
+    <div
+        class="checkout-price"
+        id="checkoutPrice"
+    >
+        €15
+    </div>
+
 </div>
 
-<h2>
-Your personalised trip.
-</h2>
 
-<div class="price">
-€30
-<span>/ trip</span>
+<div class="checkout-details">
+
+<label>
+    Full name
+</label>
+
+<input
+    id="checkoutName"
+    type="text"
+    placeholder="Your name"
+>
+
+
+<label>
+    Email
+</label>
+
+<input
+    id="checkoutEmail"
+    type="email"
+    placeholder="you@email.com"
+>
+
 </div>
 
 
-<div class="features">
+<div class="order-total">
 
-<div class="feature">
-✓ Personalised itinerary
-</div>
+<strong>
+    Total
+</strong>
 
-<div class="feature">
-✓ Transport recommendations
-</div>
-
-<div class="feature">
-✓ Accommodation recommendations
-</div>
-
-<div class="feature">
-✓ Age requirements checked
-</div>
-
-<div class="feature">
-✓ Activities based on your interests
-</div>
-
-<div class="feature">
-✓ Complete budget breakdown
-</div>
-
-<div class="feature">
-✓ Direct booking links
-</div>
+<strong id="checkoutTotal">
+    €15.00
+</strong>
 
 </div>
 
@@ -1751,18 +2336,24 @@ Your personalised trip.
     class="pay-button"
     onclick="payForTrip()"
 >
-PAY €30 & BUILD MY TRIP →
+    CONTINUE TO SECURE PAYMENT →
 </button>
 
 
-<div class="payment-explanation">
+<div class="checkout-note">
 
-GoYoung charges €30 for the personal travel-planning
-service.
+    You are paying GoYoung for a travel-planning service.
 
-Flights, accommodation, transport and activities are
-not included in this price and are booked and paid for
-separately by you with the relevant providers.
+    <br><br>
+
+    Flights, accommodation, transport, activities and other
+    travel services are not included in this price and are
+    purchased separately by you from the relevant providers.
+
+    <br><br>
+
+    Your payment will be processed securely by Stripe.
+    GoYoung does not receive or store your card details.
 
 </div>
 
@@ -1776,23 +2367,62 @@ separately by you with the relevant providers.
 
 <script>
 
-/* =====================================
-   AUTH — TEMPORARY PROTOTYPE
-===================================== */
+/* ==================================================
+   SETTINGS
+================================================== */
+
+/*
+When you create your Stripe Payment Links,
+replace the two placeholders below.
+
+Example:
+
+const QUICK_STRIPE_LINK =
+"https://buy.stripe.com/xxxx";
+
+Never put a Stripe Secret Key here.
+*/
+
+const QUICK_STRIPE_LINK =
+    "PASTE_QUICK_15_EURO_STRIPE_LINK_HERE";
+
+const FULL_STRIPE_LINK =
+    "PASTE_FULL_60_EURO_STRIPE_LINK_HERE";
+
+
+/*
+Your existing Formspree endpoint.
+*/
+
+const FORMSPREE_URL =
+    "https://formspree.io/f/moevydkv";
+
+
+let selectedPlan = "";
+let selectedPrice = 0;
+
+
+/* ==================================================
+   AUTH — DEMO ONLY
+================================================== */
 
 function showSignup() {
 
-    document.getElementById("signinBox").style.display = "none";
-    document.getElementById("signupBox").style.display = "block";
+    document.getElementById("signinBox").style.display =
+        "none";
 
+    document.getElementById("signupBox").style.display =
+        "block";
 }
 
 
 function showSignin() {
 
-    document.getElementById("signupBox").style.display = "none";
-    document.getElementById("signinBox").style.display = "block";
+    document.getElementById("signupBox").style.display =
+        "none";
 
+    document.getElementById("signinBox").style.display =
+        "block";
 }
 
 
@@ -1818,12 +2448,14 @@ function demoCreateAccount() {
         );
 
         return;
-
     }
 
 
-    enterGoYoung(name, email, country);
-
+    enterGoYoung(
+        name,
+        email,
+        country
+    );
 }
 
 
@@ -1843,7 +2475,6 @@ function demoSignIn() {
         );
 
         return;
-
     }
 
 
@@ -1851,18 +2482,24 @@ function demoSignIn() {
         email.split("@")[0];
 
 
-    enterGoYoung(name, email, "");
-
+    enterGoYoung(
+        name,
+        email,
+        ""
+    );
 }
 
 
-function enterGoYoung(name, email, country) {
+function enterGoYoung(
+    name,
+    email,
+    country
+) {
 
-    document.getElementById("authPage").style.display = "none";
+    hideAllPages();
 
-    document.getElementById("paymentPage").style.display = "none";
-
-    document.getElementById("mainWebsite").style.display = "block";
+    document.getElementById("mainWebsite").style.display =
+        "block";
 
 
     if (name) {
@@ -1872,7 +2509,6 @@ function enterGoYoung(name, email, country) {
 
         document.getElementById("tripName").value =
             name;
-
     }
 
 
@@ -1880,7 +2516,6 @@ function enterGoYoung(name, email, country) {
 
         document.getElementById("tripEmail").value =
             email;
-
     }
 
 
@@ -1888,33 +2523,49 @@ function enterGoYoung(name, email, country) {
 
         document.getElementById("tripCountry").value =
             country;
-
     }
 
 
     window.scrollTo(0,0);
-
 }
 
 
 function signOut() {
 
-    document.getElementById("mainWebsite").style.display = "none";
+    hideAllPages();
 
-    document.getElementById("paymentPage").style.display = "none";
-
-    document.getElementById("authPage").style.display = "flex";
+    document.getElementById("authPage").style.display =
+        "flex";
 
     showSignin();
 
     window.scrollTo(0,0);
-
 }
 
 
-/* =====================================
-   FORM → FORMSPREE → PAYMENT
-===================================== */
+/* ==================================================
+   PAGE MANAGEMENT
+================================================== */
+
+function hideAllPages() {
+
+    document.getElementById("authPage").style.display =
+        "none";
+
+    document.getElementById("mainWebsite").style.display =
+        "none";
+
+    document.getElementById("planPage").style.display =
+        "none";
+
+    document.getElementById("checkoutPage").style.display =
+        "none";
+}
+
+
+/* ==================================================
+   FORM → PLAN SELECTION
+================================================== */
 
 const tripForm =
     document.getElementById("tripForm");
@@ -1922,171 +2573,273 @@ const tripForm =
 
 tripForm.addEventListener(
     "submit",
-
-    async function(event) {
+    function(event) {
 
         event.preventDefault();
 
-
-        /*
-        First check the required fields.
-        */
 
         if (!tripForm.checkValidity()) {
 
             tripForm.reportValidity();
 
             return;
-
         }
 
 
-        const button =
-            tripForm.querySelector(".submit-button");
+        hideAllPages();
+
+        document.getElementById("planPage").style.display =
+            "block";
+
+        window.scrollTo(0,0);
+    }
+);
 
 
-        const originalText =
-            button.innerHTML;
+function backToForm() {
+
+    hideAllPages();
+
+    document.getElementById("mainWebsite").style.display =
+        "block";
+
+    setTimeout(
+        function() {
+
+            document
+                .getElementById("planner")
+                .scrollIntoView();
+
+        },
+        50
+    );
+}
 
 
-        button.disabled = true;
+/* ==================================================
+   SELECT QUICK / FULL
+================================================== */
 
-        button.innerHTML =
-            "SAVING YOUR TRIP...";
+function selectPlan(
+    plan,
+    price
+) {
 
+    selectedPlan =
+        plan;
+
+    selectedPrice =
+        price;
+
+
+    document.getElementById("selectedPlanField").value =
+        plan + " — €" + price;
+
+
+    const name =
+        document.getElementById("tripName").value;
+
+    const email =
+        document.getElementById("tripEmail").value;
+
+
+    document.getElementById("checkoutName").value =
+        name;
+
+    document.getElementById("checkoutEmail").value =
+        email;
+
+
+    if (plan === "QUICK") {
+
+        document.getElementById("checkoutPlanName").textContent =
+            "QUICK TRIP";
+
+        document.getElementById("checkoutPlanDescription").textContent =
+            "Transport, accommodation and ideas for things to do.";
+    }
+
+    else {
+
+        document.getElementById("checkoutPlanName").textContent =
+            "FULL TRIP";
+
+        document.getElementById("checkoutPlanDescription").textContent =
+            "Transport, accommodation and a detailed day-by-day itinerary.";
+    }
+
+
+    document.getElementById("checkoutPrice").textContent =
+        "€" + price;
+
+    document.getElementById("checkoutTotal").textContent =
+        "€" + price.toFixed(2);
+
+
+    hideAllPages();
+
+    document.getElementById("checkoutPage").style.display =
+        "block";
+
+    window.scrollTo(0,0);
+}
+
+
+function backToPlans() {
+
+    hideAllPages();
+
+    document.getElementById("planPage").style.display =
+        "block";
+
+    window.scrollTo(0,0);
+}
+
+
+/* ==================================================
+   PAYMENT
+================================================== */
+
+async function payForTrip() {
+
+    const checkoutName =
+        document.getElementById("checkoutName").value.trim();
+
+    const checkoutEmail =
+        document.getElementById("checkoutEmail").value.trim();
+
+
+    if (!checkoutName || !checkoutEmail) {
+
+        alert(
+            "Please complete your name and email."
+        );
+
+        return;
+    }
+
+
+    if (!selectedPlan) {
+
+        alert(
+            "Please choose a plan first."
+        );
+
+        return;
+    }
+
+
+    /*
+    Update form information before sending it.
+    */
+
+    document.getElementById("tripName").value =
+        checkoutName;
+
+    document.getElementById("tripEmail").value =
+        checkoutEmail;
+
+
+    const paymentButton =
+        document.querySelector(".pay-button");
+
+    const oldText =
+        paymentButton.innerHTML;
+
+
+    paymentButton.disabled =
+        true;
+
+    paymentButton.innerHTML =
+        "SAVING YOUR REQUEST...";
+
+
+    /*
+    Send the trip request to Formspree.
+    */
+
+    try {
 
         const formData =
             new FormData(tripForm);
 
 
-        try {
-
-            /*
-            Send the complete trip request
-            to your existing Formspree account.
-            */
-
-            const response =
-                await fetch(
-                    tripForm.action,
-                    {
-                        method: "POST",
-                        body: formData,
-                        headers: {
-                            "Accept": "application/json"
-                        }
+        const response =
+            await fetch(
+                FORMSPREE_URL,
+                {
+                    method: "POST",
+                    body: formData,
+                    headers: {
+                        "Accept": "application/json"
                     }
-                );
-
-
-            if (!response.ok) {
-
-                throw new Error(
-                    "Form submission failed"
-                );
-
-            }
-
-
-            /*
-            Formspree has received the trip.
-            Now show payment.
-            */
-
-            showPayment();
-
-
-        }
-
-        catch(error) {
-
-            console.error(error);
-
-            alert(
-                "We couldn't save your trip request. Please try again."
+                }
             );
 
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Formspree submission failed"
+            );
         }
 
-        finally {
 
-            button.disabled = false;
+        /*
+        Request saved successfully.
+        Now send the customer to Stripe.
+        */
 
-            button.innerHTML =
-                originalText;
+        let stripeLink;
 
+
+        if (selectedPlan === "QUICK") {
+
+            stripeLink =
+                QUICK_STRIPE_LINK;
         }
+
+        else {
+
+            stripeLink =
+                FULL_STRIPE_LINK;
+        }
+
+
+        if (
+            stripeLink.includes("PASTE_")
+        ) {
+
+            alert(
+                "Your trip request was saved successfully. Stripe isn't connected yet, so payment cannot be completed."
+            );
+
+            return;
+        }
+
+
+        window.location.href =
+            stripeLink;
 
     }
-);
 
+    catch(error) {
 
-/* =====================================
-   PAYMENT
-===================================== */
-
-function showPayment() {
-
-    document.getElementById("mainWebsite").style.display =
-        "none";
-
-    document.getElementById("paymentPage").style.display =
-        "block";
-
-    window.scrollTo(0,0);
-
-}
-
-
-function backToTrip() {
-
-    document.getElementById("paymentPage").style.display =
-        "none";
-
-    document.getElementById("mainWebsite").style.display =
-        "block";
-
-    document.getElementById("planner").scrollIntoView();
-
-}
-
-
-/*
-IMPORTANT:
-
-When Stripe gives you your Payment Link,
-replace the text below:
-
-PASTE_YOUR_STRIPE_PAYMENT_LINK_HERE
-
-with something like:
-
-https://buy.stripe.com/xxxxxxxxxxxx
-*/
-
-const STRIPE_PAYMENT_LINK =
-    "PASTE_YOUR_STRIPE_PAYMENT_LINK_HERE";
-
-
-function payForTrip() {
-
-    if (
-        STRIPE_PAYMENT_LINK ===
-        "PASTE_YOUR_STRIPE_PAYMENT_LINK_HERE"
-    ) {
+        console.error(error);
 
         alert(
-            "Stripe isn't connected yet. Add your Stripe Payment Link to the code."
+            "We couldn't save your trip request. Please try again."
         );
-
-        return;
-
     }
 
+    finally {
 
-    window.location.href =
-        STRIPE_PAYMENT_LINK;
+        paymentButton.disabled =
+            false;
 
+        paymentButton.innerHTML =
+            oldText;
+    }
 }
 
 </script>
